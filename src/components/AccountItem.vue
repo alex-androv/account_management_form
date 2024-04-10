@@ -23,8 +23,7 @@
                     class="p-2 border rounded w-full" required maxlength="100" />
                 <button type="button" @click="togglePasswordVisibility"
                     class="bg-none border-0 cursor-pointer absolute top-2 right-2	">
-                    <img :src="showPassword ? 'src/assets/eye.svg' : 'src/assets/eye-slash.svg'"
-                        alt="Toggle Password Visibility">
+                    <img :src="showPassword ? eyeIcon : eyeSlashIcon">
                 </button>
             </div>
             <button @click="emitDeleteAccount(account.id)" class="p-2 rounded flex justify-center">
@@ -37,6 +36,8 @@
 <script setup lang="ts">
     import { ref, watch } from 'vue';
     import { useAccountStore } from '../stores/accounts';
+    import eyeIcon from '../assets/eye.svg';
+    import eyeSlashIcon from '../assets/eye-slash.svg';
 
     const props = defineProps < {
         account: {
