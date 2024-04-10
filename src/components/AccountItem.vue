@@ -21,8 +21,8 @@
                 <input :type="showPassword ? 'text' : 'password'" v-model="password" @blur="validatePassword"
                     :class="{'border-2': !isPasswordValid, 'border-red-500': !isPasswordValid}"
                     class="p-2 border rounded w-full" required maxlength="100" />
-                <button type="button" @click="togglePasswordVisibility"
-                    class="bg-none border-0 cursor-pointer absolute top-2 right-2	">
+                <button v-if="password.length > 0" type="button" @click="togglePasswordVisibility"
+                    class="bg-none border-0 cursor-pointer absolute top-2 right-2">
                     <img :src="showPassword ? eyeIcon : eyeSlashIcon">
                 </button>
             </div>
